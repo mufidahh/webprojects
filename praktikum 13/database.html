@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Latihan 1</title>
+	</head>
+
+	<body>
+		<h2>Menampilkan Pesanan Tiket</h2>
+		<table border="1">
+			<tr>
+				<th>No</th>
+				<th>No.Ktp</th>
+				<th>Nama</th>
+				<th>ALamat</th>
+				<th>TTl</th>
+				<th>Jenis Kelamin</th>
+				<th>No.tlpn</th>
+				<th>Stasuin Asal</th>
+				<th>Stasuin Tujuan</th>
+				<th>Jumlah Beli</th>
+				<th>Nama Kereta </th>
+
+			</tr>
+			<?php
+				include "koneksi.php";
+				$no = 1;
+				$data = mysqli_query($koneksi,"select * from daftar");
+				while($d = mysqli_fetch_array($data)){
+			?>
+					<tr>
+						<td><?php echo $no++; ?></td>
+						<td><?php echo $d['no.ktp']; ?></td>
+						<td><?php echo $d['nama']; ?></td>
+						<td><?php echo $d['alamat']; ?></td>
+						<td><?php echo $d['ttl']; ?></td>
+						<td><?php echo $d['jenis kelamin']; ?></td>
+						<td><?php echo $d['no.tlpn']; ?></td>
+						<td><?php echo $d['stasiun asal']; ?></td>
+						<td><?php echo $d['stsiun tujuan']; ?></td>
+						<td><?php echo $d['jumlah beli']; ?></td>
+						<td><?php echo $d['nama kereta']; ?></td>
+
+					</tr>
+				<?php
+				}
+				?>
+		</table>
+		
+	</body>
+</html>
